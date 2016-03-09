@@ -15,18 +15,35 @@ You could create a file where you register your routes, e.g. `my-service-router.
 ```js
 var znRouter = require('zn-router');
 
-// register routes... (explained below)
+// Register routes
 
+znRouter.get('/', function(request, response) {
+  // ...
+});
+
+znRouter.get('/apples', function(request, response) {
+  // ...
+});
+
+znRouter.post('/apples', function(request, response) {
+  // ...
+});
+
+// This will be used by plugin.js
 module.exports = znRouter.dispatch;
 ```
 
-And then add this to your `plugin.js`
+Every action is injected with `request` and `response`. Those are basically `eventData.request` and `eventData.response`.
+Every action should return a promise. When the promise is resolved, znRouter will make your service respond. The response status and data is based on whether the promise was fulfilled or rejected.
+
+
+To bind the router to your service, add this to your `plugin.js`
 
 ```js
 var dispatch = require('./src/my-service-router.js');
 
 exports.run = function(eventData) {
-	dispatch(eventData);
+  dispatch(eventData);
 };
 ```
 
@@ -41,7 +58,7 @@ znRouter.get('/', function(request, response) {
   var workspaceId = request.params.workspaceId;
 
   // getSomething should return a promise
-  // If promise is resolved,
+  // If promise is fulfilled,
   // service will respond with status 200 and promise response as json response
   // If promise is rejected,
   // service will respond with status 500 (unless you specify otherwise – see below)
