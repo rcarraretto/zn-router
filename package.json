@@ -1,6 +1,6 @@
 {
   "name": "zn-router",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Routing for Zengine backend services (unofficial)",
   "devDependencies": {
     "jshint": "^2.9.1"
