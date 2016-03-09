@@ -34,6 +34,7 @@ module.exports = znRouter.dispatch;
 ```
 
 Every action is injected with `request` and `response`. Those are basically `eventData.request` and `eventData.response`.
+
 Every action should return a promise. When the promise is resolved, znRouter will make your service respond. The response status and data is based on whether the promise was fulfilled or rejected.
 
 
