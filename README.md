@@ -104,10 +104,11 @@ znRouter.get('/apples', function(request, response) {
   
     // You can catch specific errors and return a different status code and response
     if (err.message === 'SomeKnownError') {
-      // don't forget to return
-      return response.status(400).send({
+      response.status(400).send({
         message: 'Bad Request'
       });
+      // don't forget to return
+      return;
     }
     
     // Unknown error: Re-throw, so znRouter handles that for you
