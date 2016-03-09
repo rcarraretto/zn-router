@@ -1,0 +1,29 @@
+{
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "freeze": true,
+  "futurehostile": true,
+  "globals": {
+  },
+  "latedef": true,
+  "maxcomplexity": 5,
+  "maxdepth": 4,
+  "noarg": true,
+  "nocomma": true,
+  "nonbsp": true,
+  "nonew": true,
+  "strict": "global",
+  "undef": true,
+  "unused": "vars",
+
+  "debug": true,
+
+  "node": true,
+
+  "jasmine": true,
+  "expr": true,
+
+  "devel": true
+}
